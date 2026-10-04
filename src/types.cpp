@@ -4026,7 +4026,7 @@ gb_internal Selection lookup_field_with_selection(Type *type_, InternedString fi
 				sel = lookup_field_with_selection(f->type, field_name, is_type, sel, allow_blank_ident);
 
 				if (sel.entity != nullptr) {
-					if (is_type_pointer(f->type)) {
+					if (is_type_pointer(f->type) || is_type_soa_pointer(f->type)) {
 						sel.indirect = true;
 					}
 					return sel;
